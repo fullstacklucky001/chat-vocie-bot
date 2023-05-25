@@ -1,0 +1,48 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.bubble {
+    padding: 5px 12px;
+    color: #ffffff;
+    width: max-content;
+    max-width: calc(100% - 50px);
+    margin-bottom: 8px;
+    /* word-break: break-all; */
+}
+
+.bubble-left {
+    background-color: rgba(124, 197, 217, 0.8);
+    border-radius: 20px 20px 20px 0;
+    animation: fade-in-left 0.5s ease-in-out;
+}
+
+.bubble-right {
+    background-color: rgba(41, 41, 41, 0.7);
+    border-radius: 20px 20px 0px 20px;
+    animation: fade-in-right 0.5s ease-in-out;
+}
+
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
