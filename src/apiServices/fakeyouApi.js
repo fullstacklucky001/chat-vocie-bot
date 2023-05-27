@@ -2,13 +2,18 @@ import axios from 'axios';
 
 import store from '../store';
 
-class ApiService {
+class FakeYouApiService {
     constructor() {
         this.service = axios.create({
-            baseURL: process.env.REACT_APP_CORS_HEADER + process.env.REACT_APP_SERVER_API_URL + `/api`,
+            baseURL: `https://cors-anywhere.herokuapp.com/https://api.fakeyou.com`,
+            // baseURL: `https://api.fakeyou.com`,
             headers: {
-                'Content-Type': 'application/json'
-            }
+                // Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'access-control-allow-origin': '*',
+                // Cookie: '_gid=GA1.2.230419203.1684720444; _ga_06ZXE5FTP6=GS1.1.1685117380.11.1.1685118628.0.0.0; _ga=GA1.2.107670347.1684720444; session=eyJhbGciOiJIUzI1NiJ9.eyJjb29raWVfdmVyc2lvbiI6IjIiLCJzZXNzaW9uX3Rva2VuIjoiU0VTU0lPTjpkeTU5c2MzZzh3M2o5eGN5bnM4M3BxOXgiLCJ1c2VyX3Rva2VuIjoiVTpGVkFRMTY4UzJIQ0FQIn0.mdrDSCqhSeGncRpSTEqESn4FjAAgT-ktFXKiA8d13ew'
+            },
+            // withCredentials: true
         })
 
         // this.service.interceptors.response.use(
@@ -22,67 +27,12 @@ class ApiService {
         // )
     }
 
-    signIn = (formData) => {
+    getModelList = () => {
         return new Promise((resolve, reject) => {
-            this.service.post('/login', formData).then(res => {
+            this.service.get('/tts/list', {
+                // hello: "afaf",
+            }).then(res => {
                 resolve(res.data);
-            }).catch(err => {
-                reject(err);
-            })
-        })
-    }
-
-    signUp = (formData) => {
-        return new Promise((resolve, reject) => {
-            this.service.post('/user', formData).then(res => {
-                resolve(res.data);
-            }).catch(err => {
-                reject(err);
-            })
-        })
-    }
-
-    pwdResetCreate = (email) => {
-        return new Promise((resolve, reject) => {
-            this.service.post('/password_reset/create', {
-                email: email
-            }).then(res => {
-                resolve(res.data)
-            }).catch(err => {
-                reject(err);
-            })
-        })
-    }
-
-    pwdResetUpdate = (token, email, password, confPassword) => {
-        return new Promise((resolve, reject) => {
-            this.service.post('/password_reset/update', {
-                reset_token: token,
-                email: email,
-                password: password,
-                password_confirmation: confPassword
-            }).then(res => {
-                resolve(res.data)
-            }).catch(err => {
-                reject(err);
-            })
-        })
-    }
-
-    setTokenInHeader = (token) => {
-        this.service.defaults.headers.common['Token'] = token;
-    }
-
-    removeTokenInHeader = () => {
-        delete this.service.defaults.headers.common['Token'];
-    }
-
-    // get top session
-    getTopSession = () => {
-        return new Promise((resolve, reject) => {
-            this.service.get('/session', {
-            }).then(res => {
-                resolve(res.data)
             }).catch(err => {
                 reject(err);
             })
@@ -90,6 +40,6 @@ class ApiService {
     }
 }
 
-const service = new ApiService();
+const fakeyou = new FakeYouApiService();
 
-export default service;
+export default fakeyou;

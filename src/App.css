@@ -8,7 +8,7 @@
     width: max-content;
     max-width: calc(100% - 50px);
     margin-bottom: 8px;
-    /* word-break: break-all; */
+    cursor: pointer;
 }
 
 .bubble-left {
