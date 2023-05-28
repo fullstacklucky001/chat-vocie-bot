@@ -18,7 +18,7 @@ const systemContent = "You are Rick Sanchez, a brilliant but eccentric inventor 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 
-// const FakeYou = require('fakeyou.js')
+const FakeYou = require('../../apiServices/fakeyou')
 
 function Home() {
   let navigate = useNavigate()
@@ -44,12 +44,12 @@ function Home() {
   // "inference_text": "I'll only say the things you want me to say, and nothing more."
 
 
-  // const fy = new FakeYou.Client({
-  //   token: 'U:FVAQ168S2HCAP',
-  //   usernameOrEmail: 'henryxie',
-  //   password: 'moonapple',
+  const fy = new FakeYou.Client({
+    token: 'U:FVAQ168S2HCAP',
+    usernameOrEmail: 'henryxie',
+    password: 'moonapple',
 
-  // });
+  });
 
   // const fy = new FakeYou.Client({
   //   // token: 'U:FVAQ168S2HCAP',
@@ -96,9 +96,10 @@ function Home() {
       let message = $(this).html()
 
 
-      // await fy.start(); //required
 
-      // let models = fy.searchModel('mario');
+      await fy.start(); //required
+
+      // let models = fy.searchModel('Rick Sanchez');
       // if (models.size >= 1) {
       //   let result = await fy.makeTTS(models.first(), 'A cool text to speech');
       //   result.audioURL();
