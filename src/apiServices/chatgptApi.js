@@ -6,7 +6,7 @@ class ChatGptApiService {
             // baseURL: 'http://localhost:8080/https://api.openai.com/v1/chat/completions',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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'
+
             }
         })
     }
