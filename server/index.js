@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import secureEnv from 'secure-env'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 import path from 'path'
@@ -8,6 +9,8 @@ import route from './routes/routes.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+
+global.env = secureEnv({ secret: '9cW7@0LY%0F0R@KOj5cL90yv' });
 
 const app = express()
 dotenv.config()
@@ -25,7 +28,7 @@ app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
-const PORT = process.env.PORT
+const PORT = global.env.PORT
 console.log("SERVER PORT : " + PORT);
 
 app.listen(PORT, () => {

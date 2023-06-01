@@ -79,6 +79,20 @@
 }
 
 @media (max-width: 640px) {
+    .message-list {
+        height: calc(100% - 185px - 128px);
+        margin-top: 8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .message-list {
+        height: calc(100% - 185px);
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
     .textbox-container {
         height: 170px;
     }

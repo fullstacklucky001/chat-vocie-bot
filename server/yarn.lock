@@ -38,6 +38,15 @@
   "resolved" "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
   "version" "0.4.0"
 
+"axios@^1.4.0":
+  "integrity" "sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-1.4.0.tgz"
+  "version" "1.4.0"
+  dependencies:
+    "follow-redirects" "^1.15.0"
+    "form-data" "^4.0.0"
+    "proxy-from-env" "^1.1.0"
+
 "balanced-match@^1.0.0":
   "integrity" "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
@@ -300,6 +309,11 @@
     "statuses" "2.0.1"
     "unpipe" "~1.0.0"
 
+"follow-redirects@^1.15.0":
+  "integrity" "sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
+  "version" "1.15.2"
+
 "form-data@^4.0.0":
   "integrity" "sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww=="
   "resolved" "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz"
@@ -480,6 +494,11 @@
   dependencies:
     "brace-expansion" "^1.1.7"
 
+"minimist@^1.2.0":
+  "integrity" "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="
+  "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
+  "version" "1.2.8"
+
 "ms@^2.1.1":
   "integrity" "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"
@@ -580,6 +599,11 @@
     "forwarded" "0.2.0"
     "ipaddr.js" "1.9.1"
 
+"proxy-from-env@^1.1.0":
+  "integrity" "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="
+  "resolved" "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz"
+  "version" "1.1.0"
+
 "pstree.remy@^1.1.8":
   "integrity" "sha512-77DZwxQmxKnu3aR542U+X8FypNzbfJ+C5XQDk3uWjWxn6151aIMGthWYRXTqT1E5oJvg+ljaa2OJi+VfvCOQ8w=="
   "resolved" "https://registry.npmjs.org/pstree.remy/-/pstree.remy-1.1.8.tgz"
@@ -623,6 +647,13 @@
   "integrity" "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="
   "resolved" "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   "version" "2.1.2"
+
+"secure-env@^1.2.0":
+  "integrity" "sha512-BNi4AlHP6sMZv3ybFWD5/eieFGcqt93VRLzceUdt3+PftgVnxN7eRY7POtFm5PQqaQn5aoRoxG3A4HH9kUmeKw=="
+  "resolved" "https://registry.npmjs.org/secure-env/-/secure-env-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "minimist" "^1.2.0"
 
 "semver@^5.7.1":
   "integrity" "sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ=="

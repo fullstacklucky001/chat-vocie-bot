@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { ColorRing } from "react-loader-spinner";
-import { AiOutlineClose } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const SERVER_URL = 'https://rick-chat-bot.onrender.com'
+// const SERVER_URL = 'http://localhost:5001'
 
 function Login() {
   const navigate = useNavigate();
@@ -39,13 +40,28 @@ function Login() {
 
     setLoading(true);
 
-    if (password === '123') {
-      localStorage.setItem('login', 'success')
-      navigate('/home')
-      toast.success("Sign in successfully.");
-    } else {
-      setPasswordErr(true)
-    }
+    axios.post(SERVER_URL + '/login', {
+      username: email,
+      password: password
+    })
+      .then((res) => {
+        if (res.data === "username") {
+          toast.error("Username is incorrect.");
+          return
+        }
+
+        if (res.data === "password") {
+          toast.error("Password is incorrect.");
+          return
+        }
+
+        if (res.data === "success") {
+          localStorage.setItem('login', 'success')
+          navigate('/home')
+          toast.success("Sign in successfully.");
+          return
+        }
+      })
   };
 
   return (

@@ -5,8 +5,8 @@ var fy = null;
 export const init = async (req, res) => {
   try {
     fy = new FakeYou.Client({
-      usernameOrEmail: 'coelacanthland',
-      password: 'passkeyfakeyou'
+      usernameOrEmail: global.env.FAKEYOU_USERNAME,
+      password: global.env.FAKEYOU_PASSWORD
     });
     let result = false;
     if (fy != null) {
@@ -27,7 +27,7 @@ export const getTTS = async (req, res) => {
       path: ''
     };
     if (fy != null) {
-      const resultTTS = await fy.makeTTS('Rick Sanchez (Version 1.0)', req.body.message);
+      const resultTTS = await fy.makeTTS(global.env.TTS_MODEL, req.body.message);
 
       if (resultTTS.audioPath != null && resultTTS.audioPath !== "") {
         resultResponse = {
