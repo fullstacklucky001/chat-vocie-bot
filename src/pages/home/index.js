@@ -149,12 +149,6 @@ function Home() {
     ChatgptApi.createMessage(mlMessage).then(async res => {
       setLoading(false)
       console.log(res)
-      let rickMessage = {
-        role: 1, // user
-        message: res,
-      }
-      dispatch(pushMessage(rickMessage))
-
 
       const lines = res?.toString()?.split("\n").filter((line) => line.trim() !== "");
       // $('#message-list').append(
@@ -172,8 +166,8 @@ function Home() {
             token = JSON.parse(msg)?.choices?.[0]?.delta?.content;
             if (token !== undefined) {
               resultStr += token;
-              await sleep(100);
-              await setStreamText(resultStr);
+              // await sleep(100);
+              // await setStreamText(resultStr);
               // $('.rick-message').append(token);
             }
           } catch {
@@ -182,29 +176,28 @@ function Home() {
           }
         }
       }
+
+      let rickMessage = {
+        role: 1, // rick
+        message: resultStr,
+      }
+
+      dispatch(pushMessage(rickMessage))
       mlMessage.push(
         {
           'role': 'assistant',
           'content': resultStr
         }
       )
-      // $('.rick-message').removeClass("rick-message");
     })
       .catch((err) => {
         console.log(err)
-        let message = 'Rick often takes Morty with him on adventures through space, to cope with his internalized depression and loneliness'
-        let rickMessage = {
-          role: 1, // user
-          message: message,
-        }
-        dispatch(pushMessage(rickMessage))
         toast.error("Generate chat error!");
       });
 
     setLoading(false)
     userInputRef.current.value = ''
     document.getElementById('message-list').scrollTo({ top: 1000000, behavior: 'smooth' })
-
   }
 
   const handleClickUserMessage = (message) => {
