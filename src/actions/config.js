@@ -1,2 +1,4 @@
 export const PUSH_MESSAGE = 'PUSH_MESSAGE'
+export const FETCH_MESSAGES = 'FETCH_MESSAGES'
+export const DELETE_MESSAGE = 'DELETE_MESSAGE'
 

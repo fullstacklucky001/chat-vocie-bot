@@ -1,5 +1,5 @@
 {
-  "name": "chat-app-react-tailwind",
+  "name": "rick-chat-react-tailwindcss",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,10 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "cors-anywhere": "^0.4.4",
-    "fakeyou.js": "^1.1.1",
-    "jquery": "^3.7.0",
     "react": "^18.2.0",
-    "react-cropper": "^2.1.8",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-loader-spinner": "^5.3.4",

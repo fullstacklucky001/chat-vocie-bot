@@ -1,4 +1,4 @@
-export const login = async (req, res) => {
+const login = async (req, res) => {
   let { username, password } = req.body;
 
   if (username !== global.env.USERNAME) {
@@ -15,4 +15,8 @@ export const login = async (req, res) => {
     res.status(200).send('success')
     return
   }
+}
+
+module.exports = {
+  login
 }

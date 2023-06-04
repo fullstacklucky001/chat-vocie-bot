@@ -1,67 +1,59 @@
 import React, { useState } from "react";
+
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
-const SERVER_URL = 'https://rick-chat-bot.onrender.com'
-// const SERVER_URL = 'http://localhost:5001'
+// const SERVER_URL = 'https://rick-chat-bot.onrender.com'
+const SERVER_URL = 'http://localhost:5001'
 
 function Login() {
   const navigate = useNavigate();
 
-  // ======================
-  let [loading, setLoading] = useState(false);
-  let [success, setSuccess] = useState("");
-
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
-  let [emailErr, setEmailErr] = useState(false);
-  let [passwordErr, setPasswordErr] = useState(false);
-
   let handleEmail = (e) => {
     setEmail(e.target.value);
-    setEmailErr("");
   };
 
   let handlePassword = (e) => {
     setPassword(e.target.value);
-    setPasswordErr("");
   };
 
   let handleSingIn = (e) => {
     e.preventDefault();
     if (!email) {
-      setEmailErr(true);
+      toast.error('Enter your email or name.')
+      return
     }
     if (!password) {
-      setPasswordErr(true);
+      toast.error('Enter your password.')
+      return
     }
-
-    setLoading(true);
 
     axios.post(SERVER_URL + '/login', {
       username: email,
       password: password
+    }).then((res) => {
+      if (res.data === "username") {
+        toast.error("Username is incorrect.");
+        return
+      }
+
+      if (res.data === "password") {
+        toast.error("Password is incorrect.");
+        return
+      }
+
+      if (res.data === "success") {
+        localStorage.setItem('login', 'success')
+        navigate('/home')
+        toast.success("Sign in successfully.");
+        return
+      }
     })
-      .then((res) => {
-        if (res.data === "username") {
-          toast.error("Username is incorrect.");
-          return
-        }
-
-        if (res.data === "password") {
-          toast.error("Password is incorrect.");
-          return
-        }
-
-        if (res.data === "success") {
-          localStorage.setItem('login', 'success')
-          navigate('/home')
-          toast.success("Sign in successfully.");
-          return
-        }
-      })
   };
 
   return (
@@ -95,9 +87,6 @@ function Login() {
                 onChange={handleEmail}
               />
             </div>
-            {emailErr &&
-              <p className="text-red-700">*Please enter valid email address.</p>
-            }
           </div>
 
           <div className="mt-8">
@@ -117,9 +106,6 @@ function Login() {
                 onChange={handlePassword}
               />
             </div>
-            {passwordErr &&
-              <p className="text-red-700">*Please enter valid password.</p>
-            }
           </div>
           <div className="flex mt-6">
             <button

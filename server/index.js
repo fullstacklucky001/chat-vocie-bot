@@ -1,14 +1,10 @@
-import express from 'express'
-import cors from 'cors'
-import dotenv from 'dotenv'
-import secureEnv from 'secure-env'
-import { fileURLToPath } from 'url'
-import { dirname } from 'path'
-import path from 'path'
-import route from './routes/routes.js'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const express = require('express')
+const cors = require('cors')
+const dotenv = require('dotenv')
+const secureEnv = require('secure-env')
+const path = require('path')
+const route = require('./routes/routes.js')
+const { dbConnect, seedMessages } = require("./db/config")
 
 global.env = secureEnv({ secret: '9cW7@0LY%0F0R@KOj5cL90yv' });
 
@@ -20,6 +16,9 @@ app.use((express.urlencoded({ limit: "30mb", extended: true })))
 app.use((cors()))
 app.use(express.static(path.join(__dirname, 'public')))
 app.enable('trust proxy')
+
+dbConnect();
+seedMessages();
 
 // User Routes
 app.use('/', route)

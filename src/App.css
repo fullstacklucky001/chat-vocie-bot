@@ -1,7 +1,3 @@
-/* * {
-    font-family: Invaders;
-} */
-
 @font-face {
     font-family: Invaders;
     src: url(assets/font/Invaders.otf);
@@ -15,7 +11,7 @@
     padding: 5px 12px;
     width: max-content;
     max-width: calc(100% - 50px);
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     word-break: normal;
     font-family: Invaders;
 }
@@ -26,15 +22,11 @@
 
 .bubble-left {
     background-color: rgba(124, 197, 217, 0.8);
-    border-radius: 20px 20px 20px 0;
+    border-radius: 20px 8px 20px 0;
     animation: fade-in-left 0.5s ease-in-out;
     color: #09363e;
-    cursor: pointer;
 }
 
-/* .bubble-left:hover {
-
-} */
 .textbox {
     font-family: Invaders;
 }

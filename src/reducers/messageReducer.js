@@ -1,39 +1,25 @@
-import { PUSH_MESSAGE, FETCH_MESSAGES } from '../actions/config';
+import { PUSH_MESSAGE, FETCH_MESSAGES, DELETE_MESSAGE } from '../actions/config';
 
-// const initialState = {
-//     id: 0,
-//     type: 0,
-//     message: '',
-// };
-
-const initialState = []
+const initialState = {
+    messages: [],
+};
 
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
         case PUSH_MESSAGE:
-            return [
-                ...state,
-                action.payload
-            ]
-        // case SIGNUP:
-        // case LOAD_USER:
-        //     setAuthToken(action?.payload?.token);
-        //     return {
-        //         ...state,
-        //         isAuthenticated: true,
-        //         loading: false,
-        //         user: action?.payload?.user,
-        //         token: action?.payload?.token
-        //     }
-        // case SIGNOUT:
-        //     setAuthToken(null);
-        //     return {
-        //         ...state,
-        //         isAuthenticated: false,
-        //         loading: false,
-        //         user: null,
-        //         token: null
-        //     }
+            return {
+                messages: [...state.messages, action.payload]
+            }
+        case FETCH_MESSAGES: {
+            return {
+                messages: action.payload.data
+            }
+        }
+        case DELETE_MESSAGE: {
+            return {
+                messages: state.messages.filter((message) => message._id !== action.payload)
+            };
+        }
         default:
             return state;
     }

@@ -1,8 +1,8 @@
-import FakeYou from "fakeyou.js";
+const FakeYou = require("fakeyou.js")
 
 var fy = null;
 
-export const init = async (req, res) => {
+const init = async (req, res) => {
   try {
     fy = new FakeYou.Client({
       usernameOrEmail: global.env.FAKEYOU_USERNAME,
@@ -20,7 +20,7 @@ export const init = async (req, res) => {
 }
 
 
-export const getTTS = async (req, res) => {
+const getTTS = async (req, res) => {
   try {
     var resultResponse = {
       state: false,
@@ -42,3 +42,8 @@ export const getTTS = async (req, res) => {
     res.status(500).json({ err });
   }
 };
+
+module.exports = {
+  init,
+  getTTS
+}
