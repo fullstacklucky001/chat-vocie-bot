@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.27553ff7.css",
-    "main.js": "/static/js/main.fb8a3406.js",
+    "main.css": "/static/css/main.b7480fab.css",
+    "main.js": "/static/js/main.4f002b10.js",
     "static/media/bg_mobile.webp": "/static/media/bg_mobile.acd86ab4f24840daf7bd.webp",
     "static/media/Invaders.otf": "/static/media/Invaders.9e1cf8671fe05c3ec5ae.otf",
     "static/media/textbox.webp": "/static/media/textbox.4a737e10e14a61f32081.webp",
@@ -12,11 +12,11 @@
     "static/media/play.webp": "/static/media/play.a36a3bbaa7e883442996.webp",
     "static/media/pause.webp": "/static/media/pause.ac5c3e47c87291f791db.webp",
     "index.html": "/index.html",
-    "main.27553ff7.css.map": "/static/css/main.27553ff7.css.map",
-    "main.fb8a3406.js.map": "/static/js/main.fb8a3406.js.map"
+    "main.b7480fab.css.map": "/static/css/main.b7480fab.css.map",
+    "main.4f002b10.js.map": "/static/js/main.4f002b10.js.map"
   },
   "entrypoints": [
-    "static/css/main.27553ff7.css",
-    "static/js/main.fb8a3406.js"
+    "static/css/main.b7480fab.css",
+    "static/js/main.4f002b10.js"
   ]
 }

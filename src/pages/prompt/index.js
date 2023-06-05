@@ -267,13 +267,13 @@ function Home() {
             }
           </div>
         </div>
-        <div className="hidden">
-          <audio
-            autoPlay={true}
-            src={audioPath}
-            ref={audioPlayerRef}
-          />
-        </div>
+      </div>
+      <div className="hidden">
+        <audio
+          autoPlay={true}
+          src={audioPath}
+          ref={audioPlayerRef}
+        />
       </div>
     </div>
   );
