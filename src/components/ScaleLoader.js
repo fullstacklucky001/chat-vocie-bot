@@ -12,7 +12,7 @@ const scale = createAnimation(
 function ScaleLoader(props) {
   const {
     loading = true,
-    color = "#09363e",
+    color = "#16acc9",
     speedMultiplier = 1,
     cssOverride = {},
     height = 30,

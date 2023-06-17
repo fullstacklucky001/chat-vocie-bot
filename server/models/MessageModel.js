@@ -4,12 +4,12 @@ const MessageSchema = mongoose.Schema({
     owner: {
         type: Number    // 1: user , 0: rick
     },
-    seed: {
-        type: Boolean
-    },
     message: {
         type: Object
     },
+    summarized_message: {
+        type: Object
+    }
 }, {
     timestamps: true
 });

@@ -25,6 +25,7 @@
     border-radius: 20px 8px 20px 0;
     animation: fade-in-left 0.5s ease-in-out;
     color: #09363e;
+    cursor: pointer;
 }
 
 .textbox {
@@ -38,11 +39,25 @@
     color: #fff;
 }
 
+.react-datepicker__input-time-container {
+    margin-bottom: 5px !important;
+}
+
+.react-datepicker__triangle {
+    transform: translate(83px, 0px) !important;
+}
+
 @media (max-width: 640px) {
     .bg-middle {
         width: 100%;
         background-size: 100% 100%;
         background-image: url('assets/images/bg_mobile.webp');
+    }
+
+    .bg-event-middle {
+        width: 100%;
+        background-size: 100% 100%;
+        background-image: url('assets/images/bg_event_mobile.webp');
     }
 }
 
@@ -52,6 +67,16 @@
         background-size: 100% 100%;
         background-image: url('assets/images/bg_desktop2.webp');
     }
+
+    .bg-event-middle {
+        width: 40%;
+        background-size: 100% 100%;
+        background-image: url('assets/images/bg_event_desktop2.webp');
+    }
+
+    .ReactModal__Content {
+        width: 40%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -59,6 +84,10 @@
         cursor: pointer;
         width: 65px;
         height: 65px;
+    }
+
+    .ReactModal__Content {
+        width: 90%;
     }
 }
 

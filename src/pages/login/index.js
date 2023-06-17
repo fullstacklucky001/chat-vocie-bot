@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
-import axios from "axios";
-
-// const SERVER_URL = 'https://rick-chat-bot.onrender.com'
-const SERVER_URL = 'http://localhost:5001'
+import Http from "../../service/http";
 
 function Login() {
   const navigate = useNavigate();
@@ -33,7 +28,7 @@ function Login() {
       return
     }
 
-    axios.post(SERVER_URL + '/login', {
+    Http.post('/login', {
       username: email,
       password: password
     }).then((res) => {

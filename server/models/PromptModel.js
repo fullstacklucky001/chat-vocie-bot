@@ -2,16 +2,19 @@ const mongoose = require("mongoose")
 
 const PromptSchema = mongoose.Schema({
     title: {
-        type: String    // 1: user , 0: rick
+        type: String
     },
     prompt: {
         type: String
     },
-    maxLength: {
-        type: Number
+    summarized_prompt: {
+        type: String
+    },
+    seed: {
+        type: Boolean // true: system_content(Not allowed update), false: allow user update 
     },
     active: {
-        type: Number
+        type: Boolean // false: inactive, true: active
     }
 }, {
     timestamps: true
