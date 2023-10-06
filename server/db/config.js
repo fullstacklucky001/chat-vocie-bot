@@ -3,6 +3,7 @@ const PromptModel = require("../models/PromptModel");
 const MessageModel = require("../models/MessageModel");
 
 const dbConnect = (dbUrl) => {
+    console.log("dburl=", global.env.DB_URL)
     mongoose.connect(global.env.DB_URL, {
         useNewUrlParser: true,
         serverSelectionTimeoutMS: 5000,
