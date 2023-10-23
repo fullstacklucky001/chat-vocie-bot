@@ -59,9 +59,11 @@ const insertRickMessage = async (req, res) => {
     })
 
     let rawData = await axiosRequest.post('', {
-      model: 'gpt-3.5-turbo-0301',
+      // model: 'gpt-3.5-turbo-0301',
+      model: 'gpt-4',
       messages: mlMessages,
-      max_tokens: 100,
+      // max_tokens: 100,
+      max_tokens: 150,
       stream: true
     })
 
